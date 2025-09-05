@@ -102,6 +102,10 @@ export function useUsers() {
         return false
     }
 
+    const handleExportCSV = () => {
+        window.open("http://localhost:8000/api/users/export/csv/", "_blank")
+    }
+
     return {
         users,
         loading,
@@ -111,5 +115,6 @@ export function useUsers() {
         addUser,
         updateUser,
         deleteUser,
+        handleExportCSV,
     }
 }

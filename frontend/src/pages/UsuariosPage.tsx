@@ -42,6 +42,7 @@ function UsuariosPage() {
     addUser,
     updateUser,
     deleteUser,
+    handleExportCSV,
   } = useUsers()
 
   const { logout } = useAuth()
@@ -194,7 +195,7 @@ function UsuariosPage() {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <button onClick={logout}>Cerrar sesión</button>
+              <Button variant="ghost" onClick={logout}>Cerrar sesión</Button>
             </div>
           </div>
         </div>
@@ -211,6 +212,10 @@ function UsuariosPage() {
                   <CardTitle>Lista de Usuarios ({users.length})</CardTitle>
                   <CardDescription>Usuarios registrados en el sistema</CardDescription>
                 </div>
+                <div className="flex items-center space-x-2">
+                <Button variant="outline" onClick={handleExportCSV}>
+                  Exportar CSV
+                </Button>
                 <Dialog open={isAddDialogOpen} onOpenChange={setIsAddDialogOpen}>
                   <DialogTrigger asChild>
                     <Button className="bg-accent hover:bg-accent/90">
@@ -306,6 +311,7 @@ function UsuariosPage() {
                     </DialogFooter>
                   </DialogContent>
                 </Dialog>
+                </div>
               </div>
             </CardHeader>
             <CardContent>
