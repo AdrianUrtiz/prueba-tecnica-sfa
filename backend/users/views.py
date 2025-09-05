@@ -18,6 +18,7 @@ def export_users_csv(request):
     response['Content-Disposition'] = 'attachment; filename=\"usuarios.csv\"'
 
     writer = csv.writer(response)
+    response.write(u'\ufeff'.encode('utf8'))
     writer.writerow(['ID', 'Username', 'Nombre', 'Apellido', 'Email', 'Teléfono', 'Es staff', 'Activo'])
 
     for user in User.objects.all():
