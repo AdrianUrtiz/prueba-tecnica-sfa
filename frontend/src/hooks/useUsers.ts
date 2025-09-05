@@ -28,6 +28,7 @@ export function useUsers() {
     const [loading, setLoading] = useState(true)
     const [nextPage, setNextPage] = useState<string | null>(null)
     const [prevPage, setPrevPage] = useState<string | null>(null)
+    const [totalCount, setTotalCount] = useState<number>(0)
 
     const fetchUsers = (url = API_URL) => {
         setLoading(true)
@@ -44,6 +45,7 @@ export function useUsers() {
                 setUsers(usersFromApi)
                 setNextPage(data.next)
                 setPrevPage(data.previous)
+                setTotalCount(data.count || usersFromApi.length)
                 setLoading(false)
             })
     }
@@ -111,6 +113,7 @@ export function useUsers() {
         loading,
         nextPage,
         prevPage,
+        totalCount,
         fetchUsers,
         addUser,
         updateUser,

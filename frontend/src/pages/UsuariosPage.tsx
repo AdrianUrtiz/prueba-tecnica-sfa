@@ -38,6 +38,7 @@ function UsuariosPage() {
     loading,
     nextPage,
     prevPage,
+    totalCount,
     fetchUsers,
     addUser,
     updateUser,
@@ -209,8 +210,12 @@ function UsuariosPage() {
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
-                  <CardTitle>Lista de Usuarios ({users.length})</CardTitle>
-                  <CardDescription>Usuarios registrados en el sistema</CardDescription>
+                  <CardTitle>
+                    Lista de Usuarios (mostrando {users.length} de {totalCount})
+                  </CardTitle>
+                  <CardDescription>
+                    Usuarios registrados en el sistema
+                  </CardDescription>
                 </div>
                 <div className="flex items-center space-x-2">
                 <Button variant="outline" onClick={handleExportCSV}>
