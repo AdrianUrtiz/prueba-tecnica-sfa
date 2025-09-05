@@ -111,6 +111,28 @@ function LoginPage() {
                         </form>
                     </CardContent>
                 </Card>
+                
+                {/* Demo Credentials */}
+                <Card className="bg-muted/50">
+                    <CardContent className="pt-2">
+                        <div className="text-center space-y-1">
+                            <p className="text-sm font-medium text-muted-foreground">Credenciales de demostración:</p>
+                            <div className="text-sm space-y-1">
+                                <p>
+                                    <strong>Usuario:</strong> admin
+                                </p>
+                                <p>
+                                    <strong>Contraseña:</strong> administrador32
+                                </p>
+                            </div>
+                        </div>
+                    </CardContent>
+                </Card>
+
+                {/* Footer */}
+                <div className="text-center text-xs text-muted-foreground">
+                    <p>© 2025 hecho por Adrián Urtiz</p>
+                </div>
             </div>
         </div>
     )
