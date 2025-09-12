@@ -1,6 +1,7 @@
 from django.db import migrations
 from django.utils import timezone
 from datetime import timezone as dt_timezone
+from django.db import connection
 
 def create_initial_users(apps, schema_editor):
     User = apps.get_model('users', 'User')
@@ -72,6 +73,11 @@ def create_initial_users(apps, schema_editor):
                 "last_login": user.get("last_login"),
                 "date_joined": user.get("date_joined", date_joined),
             }
+        )
+
+    with connection.cursor() as cursor:
+        cursor.execute(
+            "SELECT setval(pg_get_serial_sequence('users_user','id'), (SELECT MAX(id) FROM users_user));"
         )
 
 class Migration(migrations.Migration):
